@@ -1,0 +1,25 @@
+{
+  "name": "three-testing-env",
+  "description": "testing env for threejs projects",
+  "main": "bin/www",
+  "authors": [
+    "Ondrej Kyjanek <ondrej.kyjanek@email.cz>"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "uikit": "3.*.*",
+    "jquery": "^3.2.1",
+    "three.js": "three#*",
+    "stats.js": "*"
+  }
+}
