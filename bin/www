@@ -3,31 +3,14 @@
 /**
  * Module dependencies.
  */
-
+require('console-stamp')(console, { pattern: 'dd/mm/yyyy HH:MM:ss.l' });
 var app = require('../app');
 var debug = require('debug')('three-testing-env:server');
 var http = require('http');
 
-/**
- * Get port from environment and store in Express.
- */
 
-var port = normalizePort(process.env.PORT || '8080');
-app.set('port', port);
 
-/**
- * Create HTTP server.
- */
-
-var server = http.createServer(app);
-
-/**
- * Listen on provided port, on all network interfaces.
- */
-
-server.listen(port);
-server.on('error', onError);
-server.on('listening', onListening);
+//FUNCTIONS
 
 /**
  * Normalize a port into a number, string, or false.
@@ -88,3 +71,26 @@ function onListening() {
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
 }
+
+/**
+ * Get port from environment and store in Express.
+ */
+
+var port = normalizePort(process.env.PORT || '8080');
+app.set('port', port);
+
+/**
+ * Create HTTP server.
+ */
+
+var server = http.createServer(app);
+var io = require('../socketio')(server);
+
+/**
+ * Listen on provided port, on all network interfaces.
+ */
+console.log('starting server');
+server.listen(port);
+server.on('error', onError);
+server.on('listening', onListening);
+
