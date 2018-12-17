@@ -255,7 +255,7 @@ function init() {
 
     // MATERIALS
     materials = generateMaterials();
-    current_material = "textured";
+    current_material = "chrome";
 
     currentMaterial = new THREE.MeshNormalMaterial();
 
@@ -269,9 +269,10 @@ function init() {
 	$('#anim').append( element );
 
     //ADD STATS TO DOCUMENT
-    stats = new Stats();
-    stats.showPanel( 0 ); // 0: fps, 1: ms, 2: mb, 3+: custom
-    $('#anim').append( stats.dom );
+    //stats = new Stats();
+    //stats.showPanel( 0 ); // 0: fps, 1: ms, 2: mb, 3+: custom
+    //$('#anim').append( stats.dom );
+
     //
     window.addEventListener( 'resize', onWindowResize, false );
     animate();
@@ -286,7 +287,7 @@ function onWindowResize() {
 function animate() {
     requestAnimationFrame( animate );
 
-    stats.begin();
+    //stats.begin();
     if (allLoaded){
         var delta = clock.getDelta();
         time += delta * 0.5;
@@ -295,7 +296,7 @@ function animate() {
         renderer.render( scene, camera );
     };
 
-    stats.end();
+    //stats.end();
 }
 
 $(document).ready(init);
